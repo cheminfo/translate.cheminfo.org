@@ -1,0 +1,21 @@
+node_modules
+coverage
+dist
+.DS_Store
+.idea
+.claude
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Local environment
+.env
+
+# Playwright
+playwright-report
+test-results
+
+# Deploy state kept by the server's global deploy script
+.deploy

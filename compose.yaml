@@ -1,0 +1,45 @@
+# Port-published deployment — publishes PORT on the host (default mode).
+#
+# Used by default when COMPOSE_FILE is unset in .env. Run: docker compose up -d
+
+services:
+  translate:
+    # Use the released image by default. To build locally instead, run:
+    #   docker compose up -d --build
+    image: ${IMAGE_NAME:-ghcr.io/cheminfo/translate.cheminfo.org}:${IMAGE_TAG:-latest}
+    build: .
+    # What the server's deploy script probes before it keeps a new container.
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:10914/v1/health').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 30s
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    env_file:
+      - path: .env
+        required: false
+    mem_limit: 512m
+    cpus: 1
+    pids_limit: 256
+    ulimits:
+      core: 0
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '50m'
+    ports:
+      - '127.0.0.1:${PORT:-10914}:${PORT:-10914}'

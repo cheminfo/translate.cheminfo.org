@@ -1,0 +1,148 @@
+/* tokens-ok: file — the overlay is drawn inside the pages of every site, so it
+   carries no site's palette and none of the family's tokens reach its shadow
+   root. */
+
+:host {
+  all: initial;
+}
+
+.translate-overlay {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgb(28 33 39);
+}
+
+.translate-overlay .bp6-portal,
+.translate-overlay .bp6-overlay {
+  z-index: 2147483001;
+}
+
+.translate-launcher {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 2147483000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100vw - 32px);
+  padding: 6px 8px 6px 12px;
+  border-radius: 20px;
+  background: rgb(255 255 255);
+  box-shadow: 0 2px 12px rgb(0 0 0 / 18%);
+}
+
+.translate-hint {
+  color: rgb(0 0 0 / 55%);
+}
+
+.translate-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.translate-panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+}
+
+.translate-progress-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.translate-panel-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 6px 8px;
+}
+
+.translate-panel-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 16px;
+  border-top: 1px solid rgb(0 0 0 / 10%);
+}
+
+.translate-panel-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.translate-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.translate-row {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.translate-row:hover,
+.translate-row:focus-visible {
+  background: rgb(0 0 0 / 5%);
+}
+
+.translate-row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.translate-row-head code {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.translate-row-source {
+  color: rgb(0 0 0 / 55%);
+}
+
+.translate-empty {
+  padding: 8px;
+  color: rgb(0 0 0 / 55%);
+}
+
+.translate-source {
+  padding: 8px;
+  border-radius: 4px;
+  background: rgb(0 0 0 / 4%);
+  white-space: pre-wrap;
+}
+
+.translate-placeholders {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.translate-problems {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.translate-published {
+  font-style: italic;
+}

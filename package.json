@@ -1,0 +1,48 @@
+{
+  "name": "translate",
+  "version": "0.0.0",
+  "description": "Translate the cheminfo sites in place, and send the edits as a pull request",
+  "private": true,
+  "type": "module",
+  "homepage": "https://github.com/cheminfo/translate.cheminfo.org#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheminfo/translate.cheminfo.org.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cheminfo/translate.cheminfo.org/issues"
+  },
+  "license": "MIT",
+  "author": "Luc Patiny",
+  "workspaces": [
+    "core",
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "build": "npm run build -w frontend",
+    "check-deploy": "node node_modules/react-cheminfo/bin/check-deploy.mjs --image-name=ghcr.io/cheminfo/translate.cheminfo.org",
+    "check-tokens": "node node_modules/react-cheminfo/bin/check-tokens.mjs backend/src frontend/src",
+    "check-types": "npm run check-types -w core && npm run check-types -w backend && npm run check-types -w frontend",
+    "dev": "lsof -ti:10914,10915 | xargs kill -9 2>/dev/null; concurrently --kill-others --kill-others-on-fail \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "eslint": "eslint .",
+    "eslint-fix": "eslint . --fix",
+    "prettier": "prettier --check .",
+    "prettier-write": "prettier --write .",
+    "start": "npm run start -w backend",
+    "test": "npm run test-only && npm run check-types && npm run check-tokens && npm run check-deploy && npm run eslint && npm run prettier",
+    "test-e2e": "npm run test-e2e -w frontend",
+    "test-only": "npm run test-only -w core && npm run test-only -w backend && npm run test-only -w frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5",
+    "eslint": "^9",
+    "eslint-config-zakodium": "^20.1.0",
+    "prettier": "^3.9.6",
+    "typescript": "^6"
+  },
+  "overrides": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}

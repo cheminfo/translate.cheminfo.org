@@ -1,0 +1,11 @@
+.claude
+.deploy
+.env
+.git
+.github
+compose*.yaml
+coverage
+dist
+node_modules
+playwright-report
+test-results

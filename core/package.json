@@ -1,0 +1,23 @@
+{
+  "name": "translate-core",
+  "version": "0.0.0",
+  "description": "What the site runtime, the overlay and the server share: the marker, the catalogs and the message checks",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "test-only": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@formatjs/icu-messageformat-parser": "^3.5.18",
+    "intl-messageformat": "^11.2.15"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^5.0.0",
+    "@zakodium/tsconfig": "^1.0.5",
+    "vitest": "^5.0.0"
+  }
+}

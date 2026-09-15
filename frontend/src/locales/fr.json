@@ -1,0 +1,11 @@
+{
+  "header.admin": "Administration",
+  "launch.heading": "Ouvrir un site en mode traduction",
+  "launch.address": "Adresse du site",
+  "launch.language": "Langue",
+  "launch.open": "Ouvrir en mode traduction",
+  "try.heading": "Essayer sur cette page",
+  "try.open": "Traduire cette page en {language}",
+  "how.heading": "Comment ça marche",
+  "how.count": "{count, plural, one {# catalogue est enregistré sur cette page.} other {# catalogues sont enregistrés sur cette page.}}"
+}

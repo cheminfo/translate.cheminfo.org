@@ -1,0 +1,35 @@
+{
+  "name": "translate-frontend",
+  "version": "0.0.0",
+  "description": "The admin page of translate.cheminfo.org, and the overlay every site loads in translate mode",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build && vite build --config vite.overlay.config.ts",
+    "check-types": "tsc --noEmit",
+    "dev": "vite",
+    "preview": "vite preview --host 0.0.0.0",
+    "test-e2e": "playwright test",
+    "test-only": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@blueprintjs/core": "^6.18.0",
+    "@blueprintjs/icons": "^6.13.0",
+    "react": "^19.3.0",
+    "react-cheminfo": "^0.12.0",
+    "react-dom": "^19.3.0",
+    "translate-core": "0.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.5.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitest/coverage-v8": "^5.0.0",
+    "@zakodium/tsconfig": "^1.0.5",
+    "happy-dom": "^20.14.5",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.0"
+  }
+}

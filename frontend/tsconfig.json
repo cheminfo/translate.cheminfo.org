@@ -1,0 +1,14 @@
+{
+  "extends": "@zakodium/tsconfig/jsx",
+  "compilerOptions": {
+    "noEmit": true,
+    "noUncheckedIndexedAccess": true
+  },
+  "include": [
+    "src",
+    "e2e",
+    "vite*.ts",
+    "vitest.config.ts",
+    "playwright.config.ts"
+  ]
+}

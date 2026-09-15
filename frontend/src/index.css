@@ -1,0 +1,85 @@
+/* The family's neutrals, geometry and type. This admin site has no colours of
+   its own and no record in the site registry. */
+@import 'react-cheminfo/styles/chrome.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:focus,
+*:focus-visible {
+  outline: none !important;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-sunken);
+}
+
+/* The header and the page fill the viewport. */
+.app-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.app-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 16px;
+}
+
+.app-main {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-main h2 {
+  margin-top: 0;
+}
+
+.launch-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.launch-row .bp6-form-group {
+  margin: 0;
+}
+
+.launch-address {
+  flex: 1 1 280px;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+@media (max-width: 700px) {
+  .app-main {
+    padding: 12px 8px;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "header.admin": "Admin",
+  "header.api": "API",
+  "launch.heading": "Open a site in translate mode",
+  "launch.intro": "The site opens with the overlay: Alt-click any text to translate it, then submit your edits as a pull request.",
+  "launch.address": "Site address",
+  "launch.language": "Language",
+  "launch.open": "Open in translate mode",
+  "launch.invalid": "Type the full address of a site, starting with https://",
+  "try.heading": "Try it on this page",
+  "try.intro": "This page is translatable too. Open it in translate mode, then Alt-click this paragraph.",
+  "try.open": "Translate this page into {language}",
+  "how.heading": "How it works",
+  "how.marker": "In translate mode every message a site formats carries an invisible marker, so the overlay finds it wherever it ends up: in the text, a tooltip, a placeholder.",
+  "how.check": "Every edit is checked against the English message as it is typed: it must parse, and keep exactly the same placeholders.",
+  "how.pullRequest": "Submitting opens one pull request per repository; a later submission from the same browser adds to it.",
+  "how.count": "{count, plural, one {# catalog is registered on this page.} other {# catalogs are registered on this page.}}",
+  "setup.heading": "Make a site translatable",
+  "setup.intro": "A site registers its catalogs, formats every visible string with t(), and loads the overlay from this server when its address carries ?translate=."
+}
