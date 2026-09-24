@@ -4,6 +4,7 @@
   "launch.address": "Adresse du site",
   "launch.language": "Langue",
   "launch.open": "Ouvrir en mode traduction",
+  "launch.link": "Envoyez ce lien à une traductrice ou un traducteur :",
   "try.heading": "Essayer sur cette page",
   "try.open": "Traduire cette page en {language}",
   "how.heading": "Comment ça marche",

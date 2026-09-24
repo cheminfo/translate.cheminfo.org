@@ -13,6 +13,37 @@
   font-size: 13px;
   line-height: 1.4;
   color: rgb(28 33 39);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* The family's selection policy, written again here because a document
+   stylesheet cannot reach into this shadow root, and `:host { all: initial }`
+   still resolves against the page's own `user-select: none`: without this,
+   Firefox inherits `none` into the Drawer's search field and iOS Safari
+   refuses to type in it. What is typed or reported stays selectable; the rest
+   is the overlay's chrome. */
+.translate-overlay
+  :is(
+    input,
+    textarea,
+    select,
+    [contenteditable],
+    .text-selectable,
+    .bp6-callout.bp6-intent-danger
+  ),
+.translate-overlay
+  :is(
+    input,
+    textarea,
+    select,
+    [contenteditable],
+    .text-selectable,
+    .bp6-callout.bp6-intent-danger
+  )
+  * {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 .translate-overlay .bp6-portal,

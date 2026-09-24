@@ -74,6 +74,13 @@ body {
   flex: 1 1 280px;
 }
 
+/* The link the page builds is long, and breaks anywhere rather than pushing
+   the card wider. */
+.launch-link {
+  margin: 12px 0 0;
+  overflow-wrap: anywhere;
+}
+
 .muted {
   color: var(--text-muted);
 }

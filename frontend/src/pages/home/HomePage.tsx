@@ -7,7 +7,7 @@ import {
 } from '@blueprintjs/core';
 import type { ReactElement } from 'react';
 import { useState } from 'react';
-import { CodeBlock } from 'react-cheminfo/ui';
+import { ClickToCopy, CodeBlock } from 'react-cheminfo/ui';
 import { languageName } from 'translate-core';
 
 import { CATALOGS, useSiteT } from '../../catalog.ts';
@@ -92,6 +92,14 @@ export function HomePage(): ReactElement {
             disabled={target === undefined}
           />
         </div>
+        {target === undefined ? null : (
+          <p className="launch-link">
+            {t('launch.link')}{' '}
+            <ClickToCopy as="code" value={target} label="translate-mode link">
+              {target}
+            </ClickToCopy>
+          </p>
+        )}
       </Card>
 
       <Card>
@@ -118,7 +126,7 @@ export function HomePage(): ReactElement {
         <h2>{t('setup.heading')}</h2>
         <p>{t('setup.intro')}</p>
         <div translate="no">
-          <CodeBlock code={SETUP_EXAMPLE} tone="muted" />
+          <CodeBlock code={SETUP_EXAMPLE} tone="muted" copyable />
         </div>
       </Card>
     </>

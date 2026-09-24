@@ -7,6 +7,7 @@
   "launch.language": "Language",
   "launch.open": "Open in translate mode",
   "launch.invalid": "Type the full address of a site, starting with https://",
+  "launch.link": "Send this link to a translator:",
   "try.heading": "Try it on this page",
   "try.intro": "This page is translatable too. Open it in translate mode, then Alt-click this paragraph.",
   "try.open": "Translate this page into {language}",
