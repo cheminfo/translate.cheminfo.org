@@ -7,8 +7,8 @@ import {
 } from '@blueprintjs/core';
 import type { ReactElement } from 'react';
 import { useState } from 'react';
+import { languageName } from 'react-cheminfo/translate';
 import { ClickToCopy, CodeBlock } from 'react-cheminfo/ui';
-import { languageName } from 'translate-core';
 
 import { CATALOGS, useSiteT } from '../../catalog.ts';
 import { TRANSLATE_PARAM } from '../../i18n/readTranslateLocale.ts';

@@ -6,7 +6,7 @@
  */
 
 import type { ReactElement } from 'react';
-import type { TranslateBridge } from 'translate-core';
+import type { TranslateBridge } from 'react-cheminfo/translate';
 
 import { CATALOGS, loadTranslations } from './catalog.ts';
 import { I18nProvider } from './i18n/I18nProvider.tsx';

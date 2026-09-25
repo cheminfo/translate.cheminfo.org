@@ -1,5 +1,5 @@
 import { useEffect, useEffectEvent, useRef, useState } from 'react';
-import type { MessageRef, TranslateBridge } from 'translate-core';
+import type { MessageRef, TranslateBridge } from 'react-cheminfo/translate';
 
 import { annotatePage, clearAnnotations } from './annotatePage.ts';
 import type { MessageStatus } from './messageStatus.ts';

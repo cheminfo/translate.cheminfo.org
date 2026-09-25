@@ -1,4 +1,4 @@
-import type { MessageRef } from 'translate-core';
+import type { MessageRef } from 'react-cheminfo/translate';
 
 import type { MessageStatus } from './messageStatus.ts';
 import { worstStatus } from './messageStatus.ts';

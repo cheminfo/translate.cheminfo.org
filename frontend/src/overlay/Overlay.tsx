@@ -1,12 +1,13 @@
 import type { ReactElement } from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { downloadText } from 'react-cheminfo/core';
-import type { MessageRef, TranslateBridge } from 'translate-core';
+import type { MessageRef, TranslateBridge } from 'react-cheminfo/translate';
 
 import { Launcher } from './Launcher.tsx';
 import { MessageEditor } from './MessageEditor.tsx';
 import { MessagePanel } from './MessagePanel.tsx';
 import { SubmitDialog } from './SubmitDialog.tsx';
+import { TableEditor } from './TableEditor.tsx';
 import { messageStatus } from './messageStatus.ts';
 import { storeDrafts } from './overlayStore.ts';
 import {
@@ -15,6 +16,7 @@ import {
   translationFiles,
 } from './pendingChanges.ts';
 import { refName } from './scanPage.ts';
+import { translatedPairs } from './tableRows.ts';
 import { useAltClick, useAnnotations, usePageScan } from './usePageScan.ts';
 
 export interface OverlayProps {
@@ -39,6 +41,8 @@ export function Overlay(props: OverlayProps): ReactElement {
   const [editing, setEditing] = useState<MessageRef>();
   const [picked, setPicked] = useState<MessageRef[]>();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isEditingTables, setIsEditingTables] = useState(false);
+  const tables = useMemo(() => bridge.tables(), [bridge]);
 
   useEffect(
     () =>
@@ -80,6 +84,7 @@ export function Overlay(props: OverlayProps): ReactElement {
   });
 
   const pending = useMemo(() => pendingChanges(catalogs), [catalogs]);
+  const pairs = useMemo(() => translatedPairs(catalogs), [catalogs]);
   const counts = pendingCounts(pending);
   const editingCatalog =
     editing === undefined ? undefined : byId.get(editing.catalogId);
@@ -107,6 +112,10 @@ export function Overlay(props: OverlayProps): ReactElement {
           setPicked(undefined);
         }}
         hardcodedCount={scan.hardcoded.length}
+        tableCount={tables.length}
+        onEditTables={() => {
+          setIsEditingTables(true);
+        }}
         counts={counts}
         onEdit={setEditing}
         onSubmit={() => {
@@ -131,8 +140,19 @@ export function Overlay(props: OverlayProps): ReactElement {
           bridge={bridge}
           catalog={editingCatalog}
           messageKey={editing.key}
+          pairs={pairs}
           onClose={() => {
             setEditing(undefined);
+          }}
+        />
+      ) : null}
+      {isEditingTables ? (
+        <TableEditor
+          bridge={bridge}
+          tables={tables}
+          catalogs={catalogs}
+          onClose={() => {
+            setIsEditingTables(false);
           }}
         />
       ) : null}

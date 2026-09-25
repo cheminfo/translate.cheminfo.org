@@ -1,11 +1,15 @@
 import { sanitizeFileName } from 'react-cheminfo/core';
-import type { CatalogSnapshot, Contribution, Messages } from 'translate-core';
+import type {
+  CatalogSnapshot,
+  Contribution,
+  Messages,
+} from 'react-cheminfo/translate';
 import {
   checkTranslation,
   mergeMessages,
   ownMessage,
   serializeMessages,
-} from 'translate-core';
+} from 'react-cheminfo/translate';
 
 /** A catalog's edits, sorted into what can be sent and what cannot. */
 export interface PendingCatalog {

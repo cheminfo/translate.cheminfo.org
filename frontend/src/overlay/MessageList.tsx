@@ -1,8 +1,8 @@
 import type { Intent } from '@blueprintjs/core';
 import { Tag } from '@blueprintjs/core';
 import type { ReactElement } from 'react';
-import type { CatalogSnapshot, MessageRef } from 'translate-core';
-import { ownMessage } from 'translate-core';
+import type { CatalogSnapshot, MessageRef } from 'react-cheminfo/translate';
+import { ownMessage } from 'react-cheminfo/translate';
 
 import type { MessageStatus } from './messageStatus.ts';
 import { messageStatus } from './messageStatus.ts';

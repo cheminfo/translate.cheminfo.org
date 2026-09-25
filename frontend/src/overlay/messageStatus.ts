@@ -1,5 +1,5 @@
-import type { CatalogSnapshot } from 'translate-core';
-import { checkTranslation, ownMessage } from 'translate-core';
+import type { CatalogSnapshot } from 'react-cheminfo/translate';
+import { checkTranslation, ownMessage } from 'react-cheminfo/translate';
 
 /**
  * Where a message stands: edited and usable, edited but failing its check,

@@ -1,5 +1,5 @@
-import type { MessageRef } from 'translate-core';
-import { readMarkers } from 'translate-core';
+import type { MessageRef } from 'react-cheminfo/translate';
+import { readMarkers } from 'react-cheminfo/translate';
 
 /** The attributes a message can be rendered into and still be found. */
 export const SCANNED_ATTRIBUTES = [

@@ -9,8 +9,8 @@ import {
 } from '@blueprintjs/core';
 import type { ReactElement } from 'react';
 import { useState } from 'react';
-import type { CatalogSnapshot, MessageRef } from 'translate-core';
-import { languageName } from 'translate-core';
+import type { CatalogSnapshot, MessageRef } from 'react-cheminfo/translate';
+import { languageName } from 'react-cheminfo/translate';
 
 import type { MessageFilter } from './MessageList.tsx';
 import { MessageList } from './MessageList.tsx';
@@ -30,6 +30,9 @@ export interface MessagePanelProps {
   onClearPicked: () => void;
   /** How many elements hold text no message produced. */
   hardcodedCount: number;
+  /** How many tables of rows the page declares, to be written as a grid. */
+  tableCount: number;
+  onEditTables: () => void;
   /** Edits that can be sent, and edits that cannot yet. */
   counts: { valid: number; invalid: number };
   onEdit: (ref: MessageRef) => void;
@@ -62,6 +65,8 @@ export function MessagePanel(props: MessagePanelProps): ReactElement {
     picked,
     onClearPicked,
     hardcodedCount,
+    tableCount,
+    onEditTables,
     counts,
     onEdit,
     onSubmit,
@@ -117,6 +122,17 @@ export function MessagePanel(props: MessagePanelProps): ReactElement {
                 ? '1 text on this page is not translatable yet; it is outlined with dots.'
                 : `${hardcodedCount} texts on this page are not translatable yet; they are outlined with dots.`}
             </Callout>
+          ) : null}
+          {tableCount > 0 ? (
+            <Button
+              icon="th"
+              text={
+                tableCount === 1
+                  ? 'Write the table'
+                  : `Write the ${tableCount} tables`
+              }
+              onClick={onEditTables}
+            />
           ) : null}
         </section>
 

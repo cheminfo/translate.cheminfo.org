@@ -2,7 +2,7 @@ import type {
   Contribution,
   ContributionProblem,
   ContributionResult,
-} from 'translate-core';
+} from 'react-cheminfo/translate';
 
 /** How a submission ended. */
 export type SubmitOutcome =

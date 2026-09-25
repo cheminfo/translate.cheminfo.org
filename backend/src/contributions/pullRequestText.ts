@@ -3,7 +3,7 @@
  * title and description of the pull request.
  */
 
-import { languageName } from 'translate-core';
+import { languageName } from 'react-cheminfo/translate';
 
 /** Every branch the bot creates starts with this. */
 export const BRANCH_PREFIX = 'translate/';

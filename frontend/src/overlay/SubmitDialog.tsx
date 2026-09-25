@@ -10,7 +10,10 @@ import {
 } from '@blueprintjs/core';
 import type { ReactElement } from 'react';
 import { useState } from 'react';
-import { MAX_CONTRIBUTOR_LENGTH, MAX_NOTE_LENGTH } from 'translate-core';
+import {
+  MAX_CONTRIBUTOR_LENGTH,
+  MAX_NOTE_LENGTH,
+} from 'react-cheminfo/translate';
 
 import { mergeContinuations, readStored, writeStored } from './overlayStore.ts';
 import type { PendingCatalog } from './pendingChanges.ts';

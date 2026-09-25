@@ -5,7 +5,7 @@ import {
   MAX_MESSAGES_PER_CATALOG,
   MAX_MESSAGE_LENGTH,
   MAX_NOTE_LENGTH,
-} from 'translate-core';
+} from 'react-cheminfo/translate';
 
 import type { ContributionSettings } from '../contributions/proposeContribution.ts';
 import {

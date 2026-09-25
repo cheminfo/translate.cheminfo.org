@@ -10,13 +10,20 @@ import {
 } from '@blueprintjs/core';
 import type { ReactElement } from 'react';
 import { useMemo, useState } from 'react';
-import type { CatalogSnapshot, TranslateBridge } from 'translate-core';
+import type {
+  CatalogSnapshot,
+  TranslateBridge,
+  TranslatedPair,
+} from 'react-cheminfo/translate';
 import {
   checkTranslation,
   languageName,
   messageArguments,
+  messageSuggestions,
   ownMessage,
-} from 'translate-core';
+} from 'react-cheminfo/translate';
+
+import { SuggestionChips } from './SuggestionChips.tsx';
 
 export interface MessageEditorProps {
   /** The page's session, which shows the edit as it is typed. */
@@ -25,6 +32,8 @@ export interface MessageEditorProps {
   catalog: CatalogSnapshot;
   /** The key of the message. */
   messageKey: string;
+  /** Every message already translated, which suggestions are drawn from. */
+  pairs: readonly TranslatedPair[];
   onClose: () => void;
 }
 
@@ -38,7 +47,7 @@ const PLURAL = /,\s*(?:plural|selectordinal)\s*,/;
  * @returns The editor.
  */
 export function MessageEditor(props: MessageEditorProps): ReactElement {
-  const { bridge, catalog, messageKey, onClose } = props;
+  const { bridge, catalog, messageKey, pairs, onClose } = props;
   const ref = { catalogId: catalog.id, key: messageKey };
   const source = ownMessage(catalog.messages, messageKey) ?? '';
   const published = ownMessage(catalog.translation, messageKey);
@@ -61,6 +70,10 @@ export function MessageEditor(props: MessageEditorProps): ReactElement {
     [bridge.locale],
   );
   const problems = value === '' ? [] : checkTranslation(source, value);
+  const suggestions = useMemo(
+    () => (value === '' ? messageSuggestions(source, pairs) : []),
+    [value, source, pairs],
+  );
   const language = languageName(bridge.locale);
 
   const change = (next: string) => {
@@ -114,6 +127,7 @@ export function MessageEditor(props: MessageEditorProps): ReactElement {
             }}
           />
         </FormGroup>
+        <SuggestionChips suggestions={suggestions} onTake={change} />
         {problems.length > 0 ? (
           <Callout intent="danger" compact>
             <ul className="translate-problems">

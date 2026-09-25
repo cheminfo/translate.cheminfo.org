@@ -3,7 +3,11 @@
  * own: the page is translatable, which is how the overlay is tried here.
  */
 
-import type { CatalogSource, MessageValues, Messages } from 'translate-core';
+import type {
+  CatalogSource,
+  MessageValues,
+  Messages,
+} from 'react-cheminfo/translate';
 
 import { useT } from './i18n/I18nContext.ts';
 import en from './locales/en.json' with { type: 'json' };

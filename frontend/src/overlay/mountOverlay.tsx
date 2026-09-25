@@ -1,9 +1,9 @@
 import { BlueprintProvider } from '@blueprintjs/core';
 import blueprintCss from '@blueprintjs/core/lib/css/blueprint.css?inline';
 import { StrictMode } from 'react';
+import type { TranslateBridge } from 'react-cheminfo/translate';
+import { BRIDGE_PROTOCOL } from 'react-cheminfo/translate';
 import { createRoot } from 'react-dom/client';
-import type { TranslateBridge } from 'translate-core';
-import { BRIDGE_PROTOCOL } from 'translate-core';
 
 import { Overlay } from './Overlay.tsx';
 import overlayCss from './overlay.css?inline';

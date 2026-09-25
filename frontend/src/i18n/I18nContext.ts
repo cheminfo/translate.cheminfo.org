@@ -1,5 +1,5 @@
 import { createContext, use } from 'react';
-import type { MessageValues, TranslateSession } from 'translate-core';
+import type { MessageValues, TranslateSession } from 'react-cheminfo/translate';
 
 /** What the provider hands down: the session, and its draft version. */
 export interface I18nContextValue {

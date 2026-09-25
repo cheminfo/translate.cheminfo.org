@@ -177,3 +177,130 @@
 .translate-published {
   font-style: italic;
 }
+
+/* ── The table editor ─────────────────────────────────────────────────────
+   A whole table at once: the rows of the site down the page, the English
+   beside the box it is written into. It is the widest thing the overlay
+   draws, so it takes the window rather than the panel. */
+
+.translate-table-dialog {
+  width: min(1200px, 96vw);
+  height: min(860px, 92vh);
+  display: flex;
+  flex-direction: column;
+}
+
+.translate-table-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+}
+
+.translate-table-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 180px;
+  margin-left: auto;
+  color: rgb(0 0 0 / 55%);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.translate-table-progress .bp6-progress-bar {
+  width: 90px;
+}
+
+.translate-table-body {
+  flex: 1 1 1px;
+  min-height: 0;
+  overflow: auto;
+}
+
+.translate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.translate-table th,
+.translate-table td {
+  padding: 4px 8px;
+  border-bottom: 1px solid rgb(0 0 0 / 8%);
+  text-align: left;
+  vertical-align: top;
+}
+
+.translate-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 15%);
+  white-space: nowrap;
+}
+
+.translate-table__note {
+  display: block;
+  color: rgb(0 0 0 / 45%);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.translate-table__row {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.translate-table__source {
+  max-width: 22rem;
+  color: rgb(0 0 0 / 65%);
+}
+
+/* A row nobody has written yet is the one a translator is looking for. */
+.translate-table tbody tr[data-status='missing'] .translate-table__row {
+  box-shadow: inset 3px 0 0 #c87619;
+}
+
+.translate-table tbody tr[data-status='invalid'] .translate-table__row {
+  box-shadow: inset 3px 0 0 #cd4246;
+}
+
+.translate-table tbody tr[data-status='draft'] .translate-table__row {
+  box-shadow: inset 3px 0 0 #2d72d2;
+}
+
+.translate-table__empty,
+.translate-cell__absent {
+  color: rgb(0 0 0 / 45%);
+}
+
+.translate-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 14rem;
+}
+
+.translate-cell .bp6-input {
+  font-size: 13px;
+}
+
+.translate-cell__problem {
+  font-size: 11px;
+}
+
+.translate-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.translate-suggestions__caption {
+  color: rgb(0 0 0 / 45%);
+  font-size: 11px;
+}

@@ -1,8 +1,0 @@
-{
-  "extends": "@zakodium/tsconfig",
-  "compilerOptions": {
-    "noEmit": true,
-    "noUncheckedIndexedAccess": true
-  },
-  "include": ["src", "vitest.config.ts"]
-}

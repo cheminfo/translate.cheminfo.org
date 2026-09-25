@@ -1,6 +1,6 @@
 import { Button, Icon, Tag } from '@blueprintjs/core';
 import type { ReactElement } from 'react';
-import { languageName } from 'translate-core';
+import { languageName } from 'react-cheminfo/translate';
 
 export interface LauncherProps {
   /** The locale being translated into. */

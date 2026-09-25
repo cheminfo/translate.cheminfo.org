@@ -3,7 +3,7 @@ import type {
   ContributionProblem,
   ContributionPullRequest,
   ContributionResult,
-} from 'translate-core';
+} from 'react-cheminfo/translate';
 
 import type { RepositoryHost } from '../github/RepositoryHost.ts';
 import { readContinuation, signContinuation } from '../utils/continuation.ts';

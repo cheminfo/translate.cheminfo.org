@@ -1,4 +1,4 @@
-import type { Contribution } from 'translate-core';
+import type { Contribution } from 'react-cheminfo/translate';
 import { expect, test } from 'vitest';
 
 import { submitContribution } from '../submitContribution.ts';

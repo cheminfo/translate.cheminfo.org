@@ -1,4 +1,4 @@
-import type { CatalogSnapshot } from 'translate-core';
+import type { CatalogSnapshot } from 'react-cheminfo/translate';
 import { expect, test } from 'vitest';
 
 import {

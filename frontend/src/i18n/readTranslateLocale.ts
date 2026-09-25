@@ -1,4 +1,4 @@
-import { SOURCE_LOCALE, isLocale } from 'translate-core';
+import { SOURCE_LOCALE, isLanguageTag } from 'react-cheminfo/translate';
 
 /** The query parameter that opens a page in translate mode. */
 export const TRANSLATE_PARAM = 'translate';
@@ -12,7 +12,7 @@ export const TRANSLATE_PARAM = 'translate';
  */
 export function readTranslateLocale(search: string): string | undefined {
   const value = new URLSearchParams(search).get(TRANSLATE_PARAM);
-  if (value === null || value === SOURCE_LOCALE || !isLocale(value)) {
+  if (value === null || value === SOURCE_LOCALE || !isLanguageTag(value)) {
     return undefined;
   }
   return value;

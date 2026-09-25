@@ -15,7 +15,6 @@
   "license": "MIT",
   "author": "Luc Patiny",
   "workspaces": [
-    "core",
     "backend",
     "frontend"
   ],
@@ -23,7 +22,7 @@
     "build": "npm run build -w frontend",
     "check-deploy": "node node_modules/react-cheminfo/bin/check-deploy.mjs --image-name=ghcr.io/cheminfo/translate.cheminfo.org",
     "check-tokens": "node node_modules/react-cheminfo/bin/check-tokens.mjs backend/src frontend/src",
-    "check-types": "npm run check-types -w core && npm run check-types -w backend && npm run check-types -w frontend",
+    "check-types": "npm run check-types -w backend && npm run check-types -w frontend",
     "dev": "lsof -ti:10914,10915 | xargs kill -9 2>/dev/null; concurrently --kill-others --kill-others-on-fail \"npm run dev -w backend\" \"npm run dev -w frontend\"",
     "eslint": "eslint .",
     "eslint-fix": "eslint . --fix",
@@ -32,7 +31,7 @@
     "start": "npm run start -w backend",
     "test": "npm run test-only && npm run check-types && npm run check-tokens && npm run check-deploy && npm run eslint && npm run prettier",
     "test-e2e": "npm run test-e2e -w frontend",
-    "test-only": "npm run test-only -w core && npm run test-only -w backend && npm run test-only -w frontend"
+    "test-only": "npm run test-only -w backend && npm run test-only -w frontend"
   },
   "devDependencies": {
     "concurrently": "^10.0.5",

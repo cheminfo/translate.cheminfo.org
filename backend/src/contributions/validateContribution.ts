@@ -2,16 +2,16 @@ import type {
   Contribution,
   ContributionProblem,
   Messages,
-} from 'translate-core';
+} from 'react-cheminfo/translate';
 import {
   SOURCE_LOCALE,
   catalogFile,
   checkTranslation,
   isCatalogDirectory,
-  isLocale,
+  isLanguageTag,
   ownMessage,
   parseMessages,
-} from 'translate-core';
+} from 'react-cheminfo/translate';
 
 import type {
   RepositoryHost,
@@ -69,7 +69,7 @@ export async function validateContribution(
 }> {
   const problems: ContributionProblem[] = [];
   const { locale } = contribution;
-  if (!isLocale(locale) || locale === SOURCE_LOCALE) {
+  if (!isLanguageTag(locale) || locale === SOURCE_LOCALE) {
     problems.push({
       repository: '',
       directory: '',

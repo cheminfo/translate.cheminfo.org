@@ -32,14 +32,77 @@ overlay is released here, once, for every site.
 
 ## Layout
 
-| Workspace  | What it holds                                                                      |
-| ---------- | ---------------------------------------------------------------------------------- |
-| `core`     | The marker, the catalog shape, the ICU checks, the merge, and the page's session   |
-| `backend`  | `POST /v1/contributions`, the GitHub publishing, and the static admin page         |
-| `frontend` | The admin page, the site runtime (`src/i18n`), and the overlay (`dist/overlay.js`) |
+| Workspace  | What it holds                                                       |
+| ---------- | ------------------------------------------------------------------- |
+| `backend`  | `POST /v1/contributions`, the GitHub publishing, and the admin page |
+| `frontend` | The admin page and the overlay (`dist/overlay.js`)                  |
+
+The marker, the catalog shape, the ICU checks, the merge and the session a page
+hands over are **`react-cheminfo/translate`**: a site cannot install anything
+from here, and the page half of the contract has to be something every site
+already depends on. This repository is the half no site should carry — the
+overlay, served once to all of them, and the server that opens the pull
+requests.
 
 A catalog is a directory ending in `locales` holding `en.json` and one flat
 `<locale>.json` per language, each mapping a key to an ICU MessageFormat string.
+
+## What a site does to become translatable
+
+```ts
+// its own entry point, after the app is mounted
+void startTranslateMode(globalThis.location.search);
+```
+
+which, when the address carries `?translate=<locale>`, calls `startTranslating`
+from `react-cheminfo/translate` with the catalogs it renders from and the tables
+it lets a translator write. The site then formats every message through the
+session it is handed. periodic-table.cheminfo.org is the reference.
+
+## Tables: the rows of a site, not its interface
+
+Most of what a chemistry tool shows is a table, and a table mixes two kinds of
+column: what was measured or computed — an atomic number, a mass, a formula, an
+identifier — and what was written — a name, where the name comes from, a note.
+The first is the same in every language and must never reach a translator; the
+second is exactly what a translator is for.
+
+A site draws that line once, by declaring its tables. Only a field it declares
+can be edited, under a key built the same way everywhere:
+
+```text
+<table>.<row>.<field>        element.Fe.name, element.Fe.origin
+```
+
+Everything else the row carries stays in the data the site generates from its
+source, out of reach of the catalogs and so out of reach of the overlay. The
+declaration is `TranslatableTable` from `react-cheminfo/translate`, and the
+page offers it on the bridge as `tables()`.
+
+**Write the tables** in the panel opens the grid: one row of the site per line,
+the English of every written column beside the box it goes into, with filters
+for what is missing and what has been edited, a search that reads both
+languages, and a count of the required cells still empty. A cell is committed
+when it is left — by Tab, by Enter, or by clicking away — because a row of a
+table is usually not on the page at all, and redrawing a hundred rows per
+keystroke would be paid for nothing. Everything else is as it is for an
+Alt-clicked message: the same ICU check, the same edits, the same Submit.
+
+## Suggestions
+
+A cell being written is offered the translations already made, so a long column
+stays consistent with itself:
+
+|                                                        |                                                                          |
+| ------------------------------------------------------ | ------------------------------------------------------------------------ |
+| **the same English**                                   | translated elsewhere, offered as it stands                               |
+| **the same English but for a part that is not a word** | a number, a symbol, a formula: that part is put back, and only that part |
+| **English that looks like this one**                   | the translation is offered to be adapted                                 |
+
+Nothing is invented and nothing is filled in: every offer is a translation
+somebody already wrote, it says which message it came from, and it reaches the
+box only when it is clicked. The same offers appear under an Alt-clicked
+message.
 
 ## Local development
 

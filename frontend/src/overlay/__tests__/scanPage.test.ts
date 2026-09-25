@@ -1,7 +1,7 @@
 // @vitest-environment happy-dom
 
-import type { MessageRef } from 'translate-core';
-import { markText } from 'translate-core';
+import type { MessageRef } from 'react-cheminfo/translate';
+import { markText } from 'react-cheminfo/translate';
 import { expect, test } from 'vitest';
 
 import { refName, scanPage } from '../scanPage.ts';

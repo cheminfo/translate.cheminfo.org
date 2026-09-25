@@ -1,11 +1,11 @@
-import type { Messages } from 'translate-core';
+import type { Messages } from 'react-cheminfo/translate';
 import {
   catalogFile,
   changedKeys,
   mergeMessages,
   parseMessages,
   serializeMessages,
-} from 'translate-core';
+} from 'react-cheminfo/translate';
 
 import type {
   FileChange,

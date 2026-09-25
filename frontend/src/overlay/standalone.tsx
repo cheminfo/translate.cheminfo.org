@@ -5,8 +5,8 @@
  * from.
  */
 
-import type { TranslateBridge } from 'translate-core';
-import { BRIDGE_GLOBAL, BRIDGE_PROTOCOL } from 'translate-core';
+import type { TranslateBridge } from 'react-cheminfo/translate';
+import { BRIDGE_GLOBAL, BRIDGE_PROTOCOL } from 'react-cheminfo/translate';
 
 import { mountOverlay } from './mountOverlay.tsx';
 

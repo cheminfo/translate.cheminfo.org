@@ -4,7 +4,7 @@ import type {
   ContributionResult,
   Messages,
   TranslateBridge,
-} from 'translate-core';
+} from 'react-cheminfo/translate';
 
 /** What the overlay keeps in the browser of the site it runs on. */
 export interface StoredOverlay {

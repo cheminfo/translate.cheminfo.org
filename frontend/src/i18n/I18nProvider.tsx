@@ -6,8 +6,16 @@ import {
   useState,
   useSyncExternalStore,
 } from 'react';
-import type { CatalogSource, Messages, TranslateBridge } from 'translate-core';
-import { BRIDGE_GLOBAL, SOURCE_LOCALE, TranslateSession } from 'translate-core';
+import type {
+  CatalogSource,
+  Messages,
+  TranslateBridge,
+} from 'react-cheminfo/translate';
+import {
+  BRIDGE_GLOBAL,
+  SOURCE_LOCALE,
+  TranslateSession,
+} from 'react-cheminfo/translate';
 
 import { I18nContext } from './I18nContext.ts';
 import { readTranslateLocale } from './readTranslateLocale.ts';
