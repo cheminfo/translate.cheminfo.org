@@ -27,7 +27,7 @@ the other sites without being reachable from them.
    its open pull request instead of opening another.
 
 The page and the overlay only share the bridge a page exposes as
-`window.__cheminfoTranslate` (`translate-core`'s `TranslateBridge`), so the
+`window.__cheminfoTranslate` (`react-cheminfo/translate`'s `TranslateBridge`), so the
 overlay is released here, once, for every site.
 
 ## Layout
