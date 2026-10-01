@@ -1,4 +1,3 @@
-import compress from '@fastify/compress';
 import cors from '@fastify/cors';
 import rateLimit from '@fastify/rate-limit';
 import swagger from '@fastify/swagger';
@@ -57,11 +56,6 @@ export default async function buildApp(options: BuildAppOptions = {}) {
     trustProxy,
     bodyLimit: 4 * 1024 * 1024,
   }).withTypeProvider<TypeBoxTypeProvider>();
-  // Brotli or gzip on every response a client will take it on, JSON answers
-  // and any static file included. Registered before anything that replies, so
-  // there is no route the rule misses.
-
-  await fastify.register(compress, { global: true, encodings: ['br', 'gzip'] });
 
   await fastify.register(swagger, {
     openapi: {
