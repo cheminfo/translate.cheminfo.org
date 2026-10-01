@@ -1,12 +1,21 @@
 {
   "header.admin": "Administration",
+  "header.api": "API",
   "launch.heading": "Ouvrir un site en mode traduction",
+  "launch.intro": "Le site s'ouvre avec le calque de traduction : Alt-cliquez n'importe quel texte pour le traduire, puis soumettez vos modifications en pull request.",
   "launch.address": "Adresse du site",
   "launch.language": "Langue",
   "launch.open": "Ouvrir en mode traduction",
+  "launch.invalid": "Saisissez l'adresse complète d'un site, commençant par https://",
   "launch.link": "Envoyez ce lien à une traductrice ou un traducteur :",
   "try.heading": "Essayer sur cette page",
+  "try.intro": "Cette page est traduisible aussi. Ouvrez-la en mode traduction, puis Alt-cliquez ce paragraphe.",
   "try.open": "Traduire cette page en {language}",
   "how.heading": "Comment ça marche",
-  "how.count": "{count, plural, one {# catalogue est enregistré sur cette page.} other {# catalogues sont enregistrés sur cette page.}}"
+  "how.marker": "En mode traduction, chaque message qu'un site formate porte un marqueur invisible : le calque le retrouve où qu'il aboutisse, dans le texte, une infobulle, le texte indicatif d'un champ.",
+  "how.check": "Chaque modification est vérifiée contre le message anglais à la frappe : elle doit s'analyser et conserver exactement les mêmes variables.",
+  "how.pullRequest": "La soumission ouvre une pull request par dépôt ; une soumission ultérieure depuis le même navigateur s'y ajoute.",
+  "how.count": "{count, plural, one {# catalogue est enregistré sur cette page.} other {# catalogues sont enregistrés sur cette page.}}",
+  "setup.heading": "Rendre un site traduisible",
+  "setup.intro": "Un site enregistre ses catalogues, formate chaque chaîne visible avec t(), et charge le calque depuis ce serveur quand son adresse porte ?translate=."
 }
