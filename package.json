@@ -1,6 +1,6 @@
 {
   "name": "translate",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Translate the cheminfo sites in place, and send the edits as a pull request",
   "private": true,
   "type": "module",
